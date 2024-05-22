@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:musix/components/homsec.dart';
+import 'package:musix/components/subScreens/sec1.dart';
 
 // ignore: must_be_immutable
 class Home extends StatelessWidget {
@@ -72,7 +73,7 @@ class Home extends StatelessWidget {
                 ),
               ),
               // Homesec(),
-              
+              Featuring_Today(),
             ],
           ),
         ),
