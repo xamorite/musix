@@ -11,7 +11,7 @@ class _Featuring_TodayState extends State<Featuring_Today> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(5),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -20,9 +20,67 @@ class _Featuring_TodayState extends State<Featuring_Today> {
             style: TextStyle(color: Colors.white, fontSize: 30),
           ),
           SizedBox(
-            height: 50,
+            height: 30,
           ),
-          Container(),
+          Container(
+            height: 200,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              // color: Colors.white,
+            ),
+            child: LayoutBuilder(builder: (context, constraints) {
+              return SingleChildScrollView(
+                primary: false,
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Stack(
+                        // alignment: Alignment.centerLeft,
+                        children: [
+                          Image(
+                              image: AssetImage(
+                                'assets/images/download.jpg',
+                              ),
+                              fit: BoxFit.contain),
+                          Column(
+                            children: [
+                              Text(
+                                'Agallio',
+                                style: TextStyle(
+                                    fontSize: 35, color: Colors.white),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                      Stack(
+                        // alignment: Alignment.centerLeft,
+                        children: [
+                          Image(
+                              image: AssetImage(
+                                'assets/images/download.jpg',
+                              ),
+                              fit: BoxFit.contain),
+                          Column(
+                            children: [
+                              Text(
+                                'Agallio',
+                                style: TextStyle(
+                                    fontSize: 35, color: Colors.white),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            }),
+          ),
         ],
       ),
     );

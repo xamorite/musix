@@ -22,13 +22,14 @@ class Home extends StatelessWidget {
             children: [
               Container(
                 height: 120,
+                // width: double.infinity,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.all(5.0),
                       child: Container(
                         height: 120,
                         child: Column(
