@@ -9,11 +9,13 @@ class Welcome_Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // themeMode:ThemeMode.light,
+      theme: ThemeData.dark(),
       home: Scaffold(
-        backgroundColor: Colors.black,
+        // backgroundColor: Colors.black,
         body: Center(
           child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 50, vertical: 100),
+            padding: EdgeInsets.symmetric(vertical: 70.0, horizontal: 30.0 ),
               child: Column(
                 children: [
                   Column(
@@ -31,8 +33,10 @@ class Welcome_Screen extends StatelessWidget {
                   Column(
                     children: [
                       ElevatedButton(
+
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
                             minimumSize: Size(300, 50),
                             padding: EdgeInsets.symmetric(horizontal: 16),
                           ),

@@ -1,13 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Featuring_Today extends StatefulWidget {
-  const Featuring_Today({super.key});
+class Relax extends StatefulWidget {
+  const Relax({super.key});
 
   @override
-  State<Featuring_Today> createState() => _Featuring_TodayState();
+  State<Relax> createState() => _RelaxState();
 }
 
-class _Featuring_TodayState extends State<Featuring_Today> {
+class _RelaxState extends State<Relax> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,11 +17,11 @@ class _Featuring_TodayState extends State<Featuring_Today> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            'Featuring Today',
-            style: TextStyle(color: Colors.white, fontSize: 24),
+            'Today’s Refreshing Song-Recommendations',
+            style: TextStyle(color: Colors.white, fontSize: 34),
           ),
           Container(
-            height: 180,
+            height: 500,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               // color: Colors.white,
@@ -30,41 +31,64 @@ class _Featuring_TodayState extends State<Featuring_Today> {
                 scrollDirection: Axis.horizontal,
                 children: [
                   Container(
-                    width: 300,
+                    width: 380,
                     height: 200,
-                    alignment: Alignment.bottomLeft,
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.all(20.0),
                     margin: const EdgeInsets.all(5),
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(
-                            'assets/images/english.png',
-                          ),
-                          fit: BoxFit.fill),
+
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: const Color.fromARGB(96, 54, 53, 53),
                     ),
-                    child: const Align(
-                      alignment: Alignment.bottomLeft,
+                    child:  Align(
                       child: Padding(
                         padding: EdgeInsets.only(bottom: 20),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.end,
+                          // mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Text(
-                              'New',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                            Text(
-                              'ENGLISH\nSONGS',
-                              style: TextStyle(
-                                  fontSize: 24,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                               children: [
+                              Image(
+                                image:AssetImage(
+                                'assets/images/relax.png',
+                              ), ),
+                               SizedBox(width: 20,),
+                               Column(
+                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                 children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                  Text('Peace',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 30,
+                                    color: Colors.white,
+                                  ),),
+                                  Text('22 songs',
+                                    style: TextStyle(
+                                      // fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                      color: Colors.white38,
+                                    ),),
+                                ],),
+                                 Row(
+                                   children: [
+                                     Row(
+                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                       children: [
+                                         IconButton(onPressed: (){}, icon:Icon( CupertinoIcons.heart)),
+                                         IconButton(onPressed: (){}, icon:Icon( Icons.menu))
+                                       ],
+                                     ),
+                                     IconButton(onPressed: (){}, icon: Icon(Icons.play_circle, color: Colors.white, size: 70,))
+                                   ],
+                                 )
+                               ],)
+                            ],),
+                             Container(),
                           ],
                         ),
                       ),
