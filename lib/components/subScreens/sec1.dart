@@ -223,8 +223,81 @@ class _Featuring_TodayState extends State<Featuring_Today> {
               );
             }),
           ),
+
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [Text('Recently Played', style: TextStyle(fontSize: 30, color: Colors.white),), Text('see more', style: TextStyle(color: Colors.white),)],),
+              Container(height: 200,
+                decoration:BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child:LayoutBuilder(builder: (context, constraints){
+                  return ListView(
+                  scrollDirection: Axis.horizontal,
+                    children: [
+                      recentlyplayed(title: 'Inside Out', imageUrl:'assets/images/recently.png',),
+                      recentlyplayed(title: 'Memories', imageUrl:'assets/images/memories.png',),
+                      recentlyplayed(title: 'Beach House', imageUrl:'assets/images/beach.png',),
+                      recentlyplayed(title: 'Remind me', imageUrl:'assets/images/kid.png',),
+                      recentlyplayed(title: 'young', imageUrl:'assets/images/kill.png',),
+                      recentlyplayed(title: 'It wont kill', imageUrl:'assets/images/smokers.png',),
+                      recentlyplayed(title: 'somebody', imageUrl:'assets/images/somebody.png',),
+
+                    ],
+                  );
+                  },),),
+            ],
+          ),
         ],
       ),
+    );
+  }
+}
+
+class recentlyplayed extends StatelessWidget {
+
+  const recentlyplayed({
+    super.key, required this.title, required this.imageUrl
+  });
+  final String title ;
+  final String imageUrl;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          height: 120,
+          width: 120,
+          alignment: Alignment.bottomLeft,
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          margin: const EdgeInsets.all(5),
+          decoration:  BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(
+                  imageUrl,
+                ),
+                fit: BoxFit.fill),
+          ),
+          child:  Align(
+            alignment: Alignment.bottomLeft,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 3),
+              child: IconButton(onPressed: (){}, icon:Icon(Icons.play_circle, color: Colors.white,size: 40,) ),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(title, style: TextStyle(
+            color: Colors.white,
+          ),),
+        ),
+      ],
     );
   }
 }

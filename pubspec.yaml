@@ -63,14 +63,22 @@ flutter:
      - assets/images/musix.png
      - assets/images/download.jpg
      - assets/images/images.jpg
-     - assets/images/cartoon.jpg
-     - assets/images/tye.jpeg
-     - assets/images/english.png
-     - assets/images/weekly.png
-     - assets/images/sing.png
-     - assets/images/allnew.png
-     - assets/images/thisweek.png
      - assets/images/relax.png
+     - assets/images/allnew.png
+     - assets/images/cartoon.jpg
+     - assets/images/english.png
+     - assets/images/sing.png
+     - assets/images/thisweek.png
+     - assets/images/tye.jpeg
+     - assets/images/weekly.png
+     - assets/images/recently.png
+     - assets/images/beach.png
+     - assets/images/memories.png
+     - assets/images/kid.png
+     - assets/images/kill.png
+     - assets/images/settings.png
+     - assets/images/smokers.png
+     - assets/images/somebody.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
