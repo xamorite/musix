@@ -63,14 +63,6 @@ flutter:
      - assets/images/musix.png
      - assets/images/download.jpg
      - assets/images/images.jpg
-     - assets/images/cartoon.jpg
-     - assets/images/tye.jpeg
-     - assets/images/english.png
-     - assets/images/weekly.png
-     - assets/images/sing.png
-     - assets/images/allnew.png
-     - assets/images/thisweek.png
-     - assets/images/relax.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
