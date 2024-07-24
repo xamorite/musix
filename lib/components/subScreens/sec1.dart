@@ -1,23 +1,54 @@
 import 'package:flutter/material.dart';
 
-class Featuring_Today extends StatefulWidget {
-  const Featuring_Today({super.key});
+class FeaturingToday extends StatefulWidget {
+   const FeaturingToday({super.key});
 
   @override
-  State<Featuring_Today> createState() => _Featuring_TodayState();
+  State<FeaturingToday> createState() => _FeaturingTodayState();
+
 }
 
-class _Featuring_TodayState extends State<Featuring_Today> {
+class _FeaturingTodayState extends State<FeaturingToday> {
+  List<Widget> recentSongs = [ RecentlyPlayed(
+    title: 'Inside Out',
+    imageUrl: 'assets/images/recently.png',
+  ),
+    RecentlyPlayed(
+      title: 'Memories',
+      imageUrl: 'assets/images/memories.png',
+    ),
+    RecentlyPlayed(
+      title: 'Beach House',
+      imageUrl: 'assets/images/beach.png',
+    ),
+    RecentlyPlayed(
+      title: 'Remind me',
+      imageUrl: 'assets/images/kid.png',
+    ),
+    RecentlyPlayed(
+      title: 'young',
+      imageUrl: 'assets/images/kill.png',
+    ),
+    RecentlyPlayed(
+      title: 'It wont kill',
+      imageUrl: 'assets/images/smokers.png',
+    ),
+    RecentlyPlayed(
+      title: 'somebody',
+      imageUrl: 'assets/images/somebody.png',
+    ),];
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Container(
       padding: const EdgeInsets.all(5),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'Featuring Today',
-            style: TextStyle(color: Colors.white, fontSize: 24),
+            style: TextStyle(
+                color: Colors.white, fontSize: screenSize.width * 0.06),
           ),
           Container(
             height: 180,
@@ -29,240 +60,163 @@ class _Featuring_TodayState extends State<Featuring_Today> {
               return ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  Container(
-                    width: 300,
-                    height: 200,
-                    alignment: Alignment.bottomLeft,
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    margin: const EdgeInsets.all(5),
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(
-                            'assets/images/english.png',
-                          ),
-                          fit: BoxFit.fill),
-                    ),
-                    child: const Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(bottom: 20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              'New',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                            Text(
-                              'ENGLISH\nSONGS',
-                              style: TextStyle(
-                                  fontSize: 24,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                  FeaturingCard(
+                    screenSize: screenSize,
+                    imageUrl: 'assets/images/english.png',
+                    cname: 'ENGLISH\nSONGS',
+                    category: 'NEW',
                   ),
-                  Container(
-                    width: 300,
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    margin: const EdgeInsets.all(5),
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(
-                            'assets/images/weekly.png',
-                          ),
-                          fit: BoxFit.fill),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.only(bottom: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            'Weekly',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                          Text(
-                            'Top 20',
-                            style: TextStyle(
-                                fontSize: 24,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    ),
+                  FeaturingCard(
+                    screenSize: screenSize,
+                    imageUrl: 'assets/images/weekly.png',
+                    cname: 'Top 20',
+                    category: 'Weekly',
                   ),
-                  Container(
-                    width: 300,
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    margin: const EdgeInsets.all(5),
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(
-                            'assets/images/sing.png',
-                          ),
-                          fit: BoxFit.fill),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.only(bottom: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            'Sing along with',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                          Text(
-                            'Tye Tribbet',
-                            style: TextStyle(
-                                fontSize: 24,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    ),
+                  FeaturingCard(
+                    screenSize: screenSize,
+                    imageUrl:  'assets/images/sing.png',
+                    cname: 'Tye Tribbet',
+                    category: 'sing along with',
                   ),
-                  Container(
-                    width: 300,
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    margin: const EdgeInsets.all(5),
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(
-                            'assets/images/allnew.png',
-                          ),
-                          fit: BoxFit.fill),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.only(bottom: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            'All New from',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                          Text(
-                            'TAMIL\nTRENDING',
-                            style: TextStyle(
-                                fontSize: 24,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    ),
+                  FeaturingCard(
+                    screenSize: screenSize,
+                    imageUrl:  'assets/images/allnew.png',
+                    cname: 'Tamil\nTrending',
+                    category: 'All New from',
                   ),
-                  Container(
-                    width: 300,
-                    height: 200,
-                    alignment: Alignment.bottomLeft,
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    margin: const EdgeInsets.all(5),
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(
-                            'assets/images/thisweek.png',
-                          ),
-                          fit: BoxFit.fill),
-                    ),
-                    child: const Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(bottom: 20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              'This Weeks',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                            Text(
-                              'AFRO\nGOSPEL',
-                              style: TextStyle(
-                                  fontSize: 24,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                  FeaturingCard(
+                    screenSize: screenSize,
+                    imageUrl:     'assets/images/thisweek.png',
+                    cname:  'AFRO\nGOSPEL',
+                    category:  'This Weeks',
                   ),
                 ],
               );
             }),
           ),
-
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [Text('Recently Played', style: TextStyle(fontSize: 30, color: Colors.white),), Text('see more', style: TextStyle(color: Colors.white),)],),
-              Container(height: 200,
-                decoration:BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child:LayoutBuilder(builder: (context, constraints){
-                  return ListView(
-                  scrollDirection: Axis.horizontal,
-                    children: [
-                      recentlyplayed(title: 'Inside Out', imageUrl:'assets/images/recently.png',),
-                      recentlyplayed(title: 'Memories', imageUrl:'assets/images/memories.png',),
-                      recentlyplayed(title: 'Beach House', imageUrl:'assets/images/beach.png',),
-                      recentlyplayed(title: 'Remind me', imageUrl:'assets/images/kid.png',),
-                      recentlyplayed(title: 'young', imageUrl:'assets/images/kill.png',),
-                      recentlyplayed(title: 'It wont kill', imageUrl:'assets/images/smokers.png',),
-                      recentlyplayed(title: 'somebody', imageUrl:'assets/images/somebody.png',),
-
-                    ],
-                  );
-                  },),),
-            ],
-          ),
+          FullRow(screenSize: screenSize,  rowName: 'Recently Played', songs: recentSongs,),
         ],
       ),
     );
   }
 }
 
-class recentlyplayed extends StatelessWidget {
-
-  const recentlyplayed({
-    super.key, required this.title, required this.imageUrl
+class FullRow extends StatelessWidget {
+  const FullRow({
+    super.key,
+    required this.screenSize, required this.songs, required this.rowName,
   });
-  final String title ;
+
+  final Size screenSize;
+  final List <Widget> songs;
+  final String rowName;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              rowName,
+              style: TextStyle(
+                  fontSize: screenSize.width * 0.06, color: Colors.white),
+            ),
+            Text(
+              'see more',
+              style: TextStyle(
+                  fontSize: screenSize.width * 0.04, color: Colors.white),
+            )
+          ],
+        ),
+        Container(
+          height: 200,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return ListView(
+                scrollDirection: Axis.horizontal,
+                children:
+                  songs,
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class FeaturingCard extends StatelessWidget {
+  const FeaturingCard({
+    super.key,
+    required this.screenSize,
+    required this.imageUrl,
+    required this.cname,
+    required this.category,
+  });
+
+  final Size screenSize;
+  final String imageUrl;
+  final String cname;
+  final String category;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 300,
+      height: 200,
+      alignment: Alignment.bottomLeft,
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.all(5),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage(
+              imageUrl,
+            ),
+            fit: BoxFit.fill),
+      ),
+      child: Align(
+        alignment: Alignment.bottomLeft,
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                category,
+                style: TextStyle(
+                  fontSize: screenSize.width * 0.04,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              Text(
+                cname,
+                style: TextStyle(
+                    fontSize: screenSize.width * 0.07,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class RecentlyPlayed extends StatelessWidget {
+  const RecentlyPlayed(
+      {super.key, required this.title, required this.imageUrl});
+
+  final String title;
+
   final String imageUrl;
 
   @override
@@ -276,26 +230,35 @@ class recentlyplayed extends StatelessWidget {
           alignment: Alignment.bottomLeft,
           padding: const EdgeInsets.symmetric(horizontal: 10),
           margin: const EdgeInsets.all(5),
-          decoration:  BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(
                   imageUrl,
                 ),
                 fit: BoxFit.fill),
           ),
-          child:  Align(
+          child: Align(
             alignment: Alignment.bottomLeft,
             child: Padding(
               padding: const EdgeInsets.only(bottom: 3),
-              child: IconButton(onPressed: (){}, icon:Icon(Icons.play_circle, color: Colors.white,size: 40,) ),
+              child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.play_circle,
+                    color: Colors.white,
+                    size: 40,
+                  )),
             ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(title, style: TextStyle(
-            color: Colors.white,
-          ),),
+          child: Text(
+            title,
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ),
         ),
       ],
     );

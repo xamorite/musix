@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 // ignore: unused_import
 import 'package:musix/screens/home.dart';
+import 'package:musix/main.dart';
 
 class Welcome_Screen extends StatelessWidget {
   const Welcome_Screen({super.key});

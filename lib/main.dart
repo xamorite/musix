@@ -17,6 +17,6 @@ class MyApp extends StatelessWidget {
         'Home': (context) => Home(),
       },
     );
-    
+
   }
 }
