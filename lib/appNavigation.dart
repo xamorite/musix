@@ -1,60 +1,76 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Bottom Navigation Bar',
-      home: Nav(),
-    );
-  }
-}
+import 'package:musix/screens/home.dart';
+import 'package:musix/screens/library.dart';
+import 'package:musix/screens/search.dart';
+import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 class Nav extends StatefulWidget {
+
+  const Nav({super.key});
+
   @override
-  _NavState createState() => _NavState();
+  State<Nav> createState() => _NavState();
 }
 
 class _NavState extends State<Nav> {
-  int _currentIndex = 0;
+  int selectedIndex = 0;
+
+  final List<Widget> screens = [
+    Home(),
+    Search(),
+    Library(),
+  ];
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      body: Center(
-        child: Text('Selected index: $_currentIndex'),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.grey,
-        type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+        body: Stack(
+      children: [
+        screens[selectedIndex],
+        Positioned(
+          bottom: 0,
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: screenSize.width * 0.1),
+            width: screenSize.width * 1,
+            height: screenSize.width * 0.15,
+            color: Colors.black54.withOpacity(0.5),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      selectedIndex = 0;
+                    });
+                  },
+                  icon: Icon(Icons.home, size: screenSize.width * 0.1,),
+                ),
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      selectedIndex = 1;
+                    });
+                  },
+                  icon: Icon(Icons.search,size: screenSize.width * 0.1),
+                ),
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      selectedIndex = 2;
+                    });
+                  },
+                  icon: Icon(Icons.library_music,size: screenSize.width * 0.1),
+                )
+              ],
+            ),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
-        ],
-      ),
-    );
+        )
+      ],
+    )
+        );
   }
 }

@@ -9,6 +9,7 @@ class Welcome_Screen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return MaterialApp(
       // themeMode:ThemeMode.light,
       theme: ThemeData.dark(),
@@ -16,7 +17,7 @@ class Welcome_Screen extends StatelessWidget {
         // backgroundColor: Colors.black,
         body: Center(
           child: Container(
-            padding: EdgeInsets.symmetric(vertical: 70.0, horizontal: 30.0 ),
+            padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.20, horizontal: 30.0 ),
               child: Column(
                 children: [
                   Column(
@@ -29,7 +30,7 @@ class Welcome_Screen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    height: 300,
+                    height: MediaQuery.of(context).size.height * 0.1,
                   ),
                   Column(
                     children: [
@@ -45,7 +46,9 @@ class Welcome_Screen extends StatelessWidget {
                             'Sign Up',
                             style: TextStyle(
                                 color: Colors.black,
+                                fontSize: MediaQuery.of(context).size.width * 0.045,
                                 fontWeight: FontWeight.bold),
+
                           )),
                       SizedBox(
                         height: 20,
@@ -72,6 +75,7 @@ class Welcome_Screen extends StatelessWidget {
                                 'Continue with Phone Number',
                                 style: TextStyle(
                                   color: Colors.white,
+                                  fontSize: MediaQuery.of(context).size.width * 0.045
                                 ),
                               ),
                             ],
@@ -101,6 +105,7 @@ class Welcome_Screen extends StatelessWidget {
                                 'Continue with Google',
                                 style: TextStyle(
                                   color: Colors.white,
+                                    fontSize: MediaQuery.of(context).size.width * 0.045
                                 ),
                               ),
                             ],
@@ -110,12 +115,12 @@ class Welcome_Screen extends StatelessWidget {
                       ),
                       TextButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, 'Home');
+                            Navigator.pushNamed(context, 'appNav');
                           },
                           child: Text(
                             'Log in',
                             style:
-                                TextStyle(color: Colors.white60, fontSize: 19),
+                                TextStyle(color: Colors.white60, fontSize: MediaQuery.of(context).size.width * 0.05),
                           ))
                     ],
                   )

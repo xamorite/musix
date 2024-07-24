@@ -95,6 +95,10 @@ class _FeaturingTodayState extends State<FeaturingToday> {
             }),
           ),
           FullRow(screenSize: screenSize,  rowName: 'Recently Played', songs: recentSongs,),
+          FullRow(screenSize: screenSize,  rowName: 'Your Artists', songs: recentSongs,),
+          FullRow(screenSize: screenSize,  rowName: 'New Releases', songs: recentSongs,),
+          FullRow(screenSize: screenSize,  rowName: 'Top Playlist', songs: recentSongs,),
+
         ],
       ),
     );
